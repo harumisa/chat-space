@@ -3,23 +3,33 @@
 }
 
 .Wrapper {
+  height: 100vh;
   display: flex;
   justify-content: start;
   .Side_bar {
-    height: 100vh;
     width: 300px;
     &__user_name {
       height: 100px;
       background-color: #253141;
     }
     &__group_list {
-      height: 100vh;
+      height: calc(100vh - 100px);
       background-color: #2f3e51;
     }
   }
   .Main_chat {
-    height: 100vh;
     width: calc(100vw - 300px);
-    background-color: #ffffff;
+    &__group_info {
+      height: 100px;
+      background-color: #ffffff;
+    }
+    &__message_list {
+      height: calc(100vh - 190px);
+      background-color: #fafafa;
+    }
+    &__message_form {
+      height: 90px;
+      background-color: #d2d2d2;
+    }
   }
 }
