@@ -1,3 +1,18 @@
 * {
   box-sizing: border-box;
 }
+
+.Wrapper {
+  display: flex;
+  justify-content: start;
+  .Side_bar {
+    height: 100vw;
+    width: 300px;
+    background-color: #243141;
+  }
+  .Main_chat {
+    height: 100vw;
+    width: calc(100vw - 300px);
+    background-color: #ffffff;
+  }
+}
