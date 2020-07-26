@@ -1,4 +1,14 @@
 .Main_chat
   .Main_chat__group_info
+    .Group
+      .Group__name
+        グループ名
+      %ul.Group__member
+        Member：
+        %li.Group__member--name
+          misato
+    .Edit
+      = link_to "#", class: "Edit__btn" do
+        Edit
   .Main_chat__message_list
   .Main_chat__message_form
