@@ -8,22 +8,23 @@
   justify-content: start;
   .Side_bar {
     width: 300px;
+    color: #ffffff;
+    font-weight: bold;
     &__user_name {
       height: 100px;
+      padding: 0px 20px 0px;
       background-color: #253141;
-      color: #ffffff;
-      font-weight: bold;
       display: flex;
       justify-content: center;
       align-items: center;
       .Top_items {
         height: 20px;
-        width: 260px;
+        width: 100%;
         background: #253141;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        &__name {
+        &__user_name {
           font-size: 16px;
         }
         &__icons {
@@ -40,7 +41,18 @@
     }
     &__group_list {
       height: calc(100vh - 100px);
+      padding: 0px 20px 0px;
       background-color: #2f3e51;
+      .Group_item {
+        padding: 20px 0px 40px;
+        &__name {
+          font-size: 15px;
+        }
+        &__latest_message {
+          margin-top: 5px;
+          font-size: 11px;
+        }
+      }
     }
   }
   .Main_chat {
