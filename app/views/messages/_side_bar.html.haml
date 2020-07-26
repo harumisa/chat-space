@@ -1,3 +1,13 @@
 .Side_bar
   .Side_bar__user_name
+    .Top_items
+      .Top_items__name
+        misato
+      .Top_items__icons
+        = link_to "#", class: "Top_items__btn" do
+          = icon('far', 'edit', class: "Top_items__btn--edit")
+          %span<>
+        = link_to "#", class: "Top_items__btn" do
+          = icon('fas', 'cog', class: "Top_items__btn--cog")
+          %span<>
   .Side_bar__group_list

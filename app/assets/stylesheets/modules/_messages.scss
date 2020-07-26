@@ -11,6 +11,32 @@
     &__user_name {
       height: 100px;
       background-color: #253141;
+      color: #ffffff;
+      font-weight: bold;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .Top_items {
+        height: 20px;
+        width: 260px;
+        background: #253141;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        &__name {
+          font-size: 16px;
+        }
+        &__icons {
+          width: 60px;
+          text-align: right;
+          .Top_items__btn {
+            color: #ffffff;
+            &--cog {
+              margin-left: 5px;
+            }
+          }
+        }
+      }
     }
     &__group_list {
       height: calc(100vh - 100px);
