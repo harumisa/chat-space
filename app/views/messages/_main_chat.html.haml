@@ -13,4 +13,10 @@
   .Main_chat__message_list
     - 2.times do
       = render "message_item"
-  .Main_chat__message_form
+  %form.Main_chat__message_form
+    .Input_box
+      %input.Input_box__text{type: "text", placeholder: "type a message"}
+      %label{class: "Input_box__image"}
+        = icon('fas', 'image')
+        %input{type: "file", class: "Input_box__image--file"}
+    %input.Send_btn{type: "submit", value: "Send"}

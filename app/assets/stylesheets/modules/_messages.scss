@@ -103,6 +103,7 @@
           display: flex;
           &--contributor {
             font-size: 16px;
+            font-weight: bold;
             color: #333333;
           }
           &--date {
@@ -120,7 +121,41 @@
     }
     &__message_form {
       height: 90px;
+      padding: 0px 40px 0px 40px;
       background-color: #d2d2d2;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .Input_box {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        position: relative;
+        &__text {
+          height: 50px;
+          width: 100%;
+          margin-right: 15px;
+          padding-left: 10px;
+          border: 0px;
+        }
+        &__image {
+          font-size: 1.5em;
+          display: block;
+          position: absolute;
+          right: 25px;
+          &--file {
+            display: none;
+          }
+        }
+      }
+      .Send_btn {
+        height: 50px;
+        padding: 0px 30px;
+        border: 0px;
+        font-size: 16px;
+        color: #fff;
+        background-color: #38aef0;
+      }
     }
   }
 }
