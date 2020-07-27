@@ -59,6 +59,7 @@
     width: calc(100vw - 300px);
     &__group_info {
       height: 100px;
+      border-bottom: 1px solid #eeeeee;
       background-color: #ffffff;
       display: flex;
       justify-content: space-between;
