@@ -6,9 +6,11 @@
       %ul.Group__member
         Member：
         %li.Group__member--name
-          misato
+          name
     .Edit
       = link_to "#", class: "Edit__btn" do
         Edit
   .Main_chat__message_list
+    - 2.times do
+      = render "message_item"
   .Main_chat__message_form
