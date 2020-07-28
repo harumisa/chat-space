@@ -1,0 +1,15 @@
+.sideBar
+  .sideBar__userName
+    %ul.topItems
+      %li.topItems__userName
+        名前
+      %li.topItems__icons
+        = link_to "#", class: "topItems__btn" do
+          = icon('far', 'edit', class: "topItems__btn--edit")
+          %span<>
+        = link_to "#", class: "topItems__btn" do
+          = icon('fas', 'cog', class: "topItems__btn--cog")
+          %span<>
+  .sideBar__groupList
+    - 2.times do
+      = render "group_item"

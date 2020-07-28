@@ -1,0 +1,22 @@
+.mainChat
+  .mainChat__groupInfo
+    .group
+      .group__name
+        グループ名
+      %ul.group__member
+        Member：
+        %li.group__member--name
+          name
+    .edit
+      = link_to "#", class: "edit__btn" do
+        Edit
+  .mainChat__messageList
+    - 2.times do
+      = render "message_item"
+  %form.mainChat__messageForm
+    .inputBox
+      %input.inputBox__text{type: "text", placeholder: "type a message"}
+      %label{class: "inputBox__image"}
+        = icon('fas', 'image')
+        %input{type: "file", class: "inputBox__image--file"}
+    %input.sendBtn{type: "submit", value: "Send"}
