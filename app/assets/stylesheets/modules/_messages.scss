@@ -2,6 +2,8 @@
   box-sizing: border-box;
 }
 
+$btn-color: #38aef0;
+
 .wrapper {
   height: 100vh;
   display: flex;
@@ -20,7 +22,6 @@
       .topItems {
         height: 20px;
         width: 100%;
-        background: #253141;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -82,11 +83,10 @@
           height: 40px;
           width: 72px;
           padding: 0px 20px;
-          border: 1px solid #38aef0;
+          border: 1px solid $btn-color;
           font-size: 16px;
-          color: #38aef0;
+          color: $btn-color;
           text-decoration: none;
-          display: block;
           display: flex;
           justify-content: center;
           align-items: center;
@@ -121,7 +121,7 @@
     }
     &__messageForm {
       height: 90px;
-      padding: 0px 40px 0px 40px;
+      padding: 0px 40px;
       background-color: #d2d2d2;
       display: flex;
       justify-content: space-between;
@@ -136,11 +136,10 @@
           width: 100%;
           margin-right: 15px;
           padding-left: 10px;
-          border: 0px;
+          border: none;
         }
         &__image {
           font-size: 1.5em;
-          display: block;
           position: absolute;
           right: 25px;
           &--file {
@@ -151,10 +150,10 @@
       .sendBtn {
         height: 50px;
         padding: 0px 30px;
-        border: 0px;
+        border: none;
         font-size: 16px;
         color: #fff;
-        background-color: #38aef0;
+        background-color: $btn-color;
       }
     }
   }
