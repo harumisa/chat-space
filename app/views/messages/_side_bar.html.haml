@@ -11,5 +11,9 @@
           = icon('fas', 'cog', class: "topItems__btn--cog")
           %span<>
   .sideBar__groupList
-    - 2.times do
-      = render "group_item"
+    - current_user.groups.each do |group|
+      .groupItem
+        .groupItem__name
+          = group.name
+        .groupItem__latestMessage
+          最新メッセージ
