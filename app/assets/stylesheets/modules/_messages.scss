@@ -11,11 +11,11 @@ $btn-color: #38aef0;
   .sideBar {
     width: 300px;
     color: #ffffff;
-    font-weight: bold;
     &__userName {
       height: 100px;
       padding: 0px 20px 0px;
       background-color: #253141;
+      font-weight: bold;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -46,6 +46,10 @@ $btn-color: #38aef0;
       background-color: #2f3e51;
       .groupItem {
         padding: 20px 0px 40px;
+        &__link {
+          color: #ffffff;
+          text-decoration: none;
+        }
         &__name {
           font-size: 15px;
         }
@@ -120,40 +124,42 @@ $btn-color: #38aef0;
       }
     }
     &__messageForm {
-      height: 90px;
-      padding: 0px 40px;
-      background-color: #d2d2d2;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      .inputBox {
-        width: 100%;
+      &--form {
+        height: 90px;
+        padding: 0px 40px;
+        background-color: #d2d2d2;
         display: flex;
+        justify-content: space-between;
         align-items: center;
-        position: relative;
-        &__text {
-          height: 50px;
+        .inputBox {
           width: 100%;
-          margin-right: 15px;
-          padding-left: 10px;
-          border: none;
-        }
-        &__image {
-          font-size: 1.5em;
-          position: absolute;
-          right: 25px;
-          &--file {
-            display: none;
+          display: flex;
+          align-items: center;
+          position: relative;
+          &__text {
+            height: 50px;
+            width: 100%;
+            margin-right: 15px;
+            padding-left: 10px;
+            border: none;
+          }
+          &__image {
+            font-size: 1.5em;
+            position: absolute;
+            right: 25px;
+            &--file {
+              display: none;
+            }
           }
         }
-      }
-      .sendBtn {
-        height: 50px;
-        padding: 0px 30px;
-        border: none;
-        font-size: 16px;
-        color: #fff;
-        background-color: $btn-color;
+        .sendBtn {
+          height: 50px;
+          padding: 0px 30px;
+          border: none;
+          font-size: 16px;
+          color: #fff;
+          background-color: $btn-color;
+        }
       }
     }
   }

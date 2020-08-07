@@ -17,14 +17,16 @@
           %li.messageItem__post--contributor
             = message.user.name
           %li.messageItem__post--date
-            2020/07/27(Mon) 17:01
+            = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
         .messageItem__text
-          = message.content
+          - if message.content.present?
+            = message.content
+          = image_tag message.image.url, class: 'messageItem__text--image' if message.image.present?
   .mainChat__messageForm
-    = form_with model: [@group, @message], html: {class: "mainChat__messageForm--form"}, local: ture |f|
-    .inputBox
-      = f.text_field :content, class: 'inputBox__text', placeholder: 'type a message'
-      = f.label :image, class: 'inputBox__image'
-        = icon('fas', 'image', class: 'inputBox__image--icon')
-        = f.file_field :image, class: 'inputBox__image--file'
-    = f.submit 'Send', class: 'sendBtn'
+    = form_with model: [@group, @message], html: {class: "mainChat__messageForm--form"}, local: true do |f|
+      .inputBox
+        = f.text_field :content, class: 'inputBox__text', placeholder: 'type a message'
+        = f.label :image, class: 'inputBox__image' do
+          = icon('fas', 'image', class: 'inputBox__image--icon')
+          = f.file_field :image, class: 'inputBox__image--file'
+      = f.submit 'Send', class: 'sendBtn'
