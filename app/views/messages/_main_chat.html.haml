@@ -2,11 +2,12 @@
   .mainChat__groupInfo
     .group
       .group__name
-        グループ名
-      %ul.group__member
+        = @group.name
+      .group__member
         Member：
-        %li.group__member--name
-          name
+        .group__member--name
+          - @users.each do |user|
+            = user.name
     .edit
       = link_to "#", class: "edit__btn" do
         Edit
