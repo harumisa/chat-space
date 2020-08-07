@@ -2,21 +2,32 @@
   .mainChat__groupInfo
     .group
       .group__name
-        グループ名
-      %ul.group__member
+        = @group.name
+      .group__member
         Member：
-        %li.group__member--name
-          name
+        .group__member--name
+          - @users.each do |user|
+            = user.name
     .edit
-      = link_to "#", class: "edit__btn" do
+      = link_to edit_group_path(@group), class: "edit__btn" do
         Edit
   .mainChat__messageList
-    - 2.times do
-      = render "message_item"
-  %form.mainChat__messageForm
-    .inputBox
-      %input.inputBox__text{type: "text", placeholder: "type a message"}
-      %label{class: "inputBox__image"}
-        = icon('fas', 'image')
-        %input{type: "file", class: "inputBox__image--file"}
-    %input.sendBtn{type: "submit", value: "Send"}
+    - @messages.each do |message|
+      .messageItem
+        %ul.messageItem__post
+          %li.messageItem__post--contributor
+            = message.user.name
+          %li.messageItem__post--date
+            = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
+        .messageItem__text
+          - if message.content.present?
+            = message.content
+          = image_tag message.image.url, class: 'messageItem__text--image' if message.image.present?
+  .mainChat__messageForm
+    = form_with model: [@group, @message], html: {class: "mainChat__messageForm--form"}, local: true do |f|
+      .inputBox
+        = f.text_field :content, class: 'inputBox__text', placeholder: 'type a message'
+        = f.label :image, class: 'inputBox__image' do
+          = icon('fas', 'image', class: 'inputBox__image--icon')
+          = f.file_field :image, class: 'inputBox__image--file'
+      = f.submit 'Send', class: 'sendBtn'
