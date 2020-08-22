@@ -11,9 +11,9 @@ $(function() {
                       </li>
                     </ul>
                     <div class="messageItem__text">
-                      <p>
-                      ${message.content}
-                      </p>
+                      <div class="messageItem__text--content">
+                        ${message.content}
+                      </div>
                       <img class="messageItem__text--image" src="${message.image}">
                     </div>
                   </div>`
@@ -29,7 +29,9 @@ $(function() {
                       </li>
                     </ul>
                     <div class="messageItem__text">
-                      ${message.content}
+                      <div class="messageItem__text--content">
+                        ${message.content}
+                      </div>
                     </div>
                   </div>`
       return html;
@@ -50,7 +52,8 @@ $(function() {
     })
     .done(function(data) {
       let html = buildHTML(data);
+      $(".mainChat__messageList").append(html);
+      $("#new_message")[0].reset();
     })
   })
 });
-
