@@ -99,10 +99,11 @@ $btn-color: #38aef0;
     }
     &__messageList {
       height: calc(100vh - 190px);
-      padding: 35px 40px 0px;
+      padding: 0px 40px 46px 40px;
       background-color: #fafafa;
+      overflow-y: auto;
       .messageItem {
-        margin-bottom: 46px;
+        padding-top: 46px;
         &__post {
           display: flex;
           &--contributor {
