@@ -21,10 +21,11 @@
             = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
         .messageItem__text
           - if message.content.present?
-            = message.content
-          = image_tag message.image.url, class: 'messageItem__text--image' if message.image.present?
+            .messageItem__text--content
+              = message.content
+            = image_tag message.image.url, class: 'messageItem__text--image' if message.image.present?
   .mainChat__messageForm
-    = form_with model: [@group, @message], html: {class: "mainChat__messageForm--form"}, local: true do |f|
+    = form_with model: [@group, @message], html: {class: "mainChat__messageForm--form", id: "new_message"}, local: true do |f|
       .inputBox
         = f.text_field :content, class: 'inputBox__text', placeholder: 'type a message'
         = f.label :image, class: 'inputBox__image' do
