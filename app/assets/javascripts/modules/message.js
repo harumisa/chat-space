@@ -62,27 +62,4 @@ $(function() {
       $(".sendBtn").prop("disabled", false);
     });
   })
-
-  function reloadMessages() {
-    let last_message_id = $(".messageItem:last").data("message-id") || 0;
-    $.ajax({
-      url: "api/messages",
-      type: "GET",
-      dataType: 'json',
-      data: {id: last_message_id}
-    })
-    .done(function(messages) {
-      if (messages.length !== 0) {
-        let insertHTML = "";
-        messages.forEach(function(message) {
-          insertHTML += buildHTML(message);
-        });
-        $(".mainChat__messageList").append(insertHTML);
-      } 
-    })
-    .fail(function() {
-      alert("error");
-    });
-  };
-  setInterval(reloadMessages, 7000);
 });
