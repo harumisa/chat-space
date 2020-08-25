@@ -1,7 +1,7 @@
 $(function() {
   function buildHTML(message) {
     if (message.image) {
-      let html = `<div class="messageItem">
+      let html = `<div class="messageItem" data-message-id=${message.id}>
                     <ul class="messageItem__post">
                       <li class="messageItem__post--contributor">
                         ${message.user_name}
@@ -19,7 +19,7 @@ $(function() {
                   </div>`
       return html;
     } else {
-      let html = `<div class="messageItem">
+      let html = `<div class="messageItem" data-message-id=${message.id}>
                     <ul class="messageItem__post">
                       <li class="messageItem__post--contributor">
                       ${message.user_name}
@@ -62,4 +62,27 @@ $(function() {
       $(".sendBtn").prop("disabled", false);
     });
   })
+
+  function reloadMessages() {
+    let last_message_id = $(".messageItem:last").data("message-id") || 0;
+    $.ajax({
+      url: "api/messages",
+      type: "GET",
+      dataType: 'json',
+      data: {id: last_message_id}
+    })
+    .done(function(messages) {
+      if (messages.length !== 0) {
+        let insertHTML = "";
+        messages.forEach(function(message) {
+          insertHTML += buildHTML(message);
+        });
+        $(".mainChat__messageList").append(insertHTML);
+      } 
+    })
+    .fail(function() {
+      alert("error");
+    });
+  };
+  setInterval(reloadMessages, 7000);
 });
