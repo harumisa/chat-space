@@ -13,7 +13,7 @@
         Edit
   .mainChat__messageList
     - @messages.each do |message|
-      .messageItem
+      .messageItem{data: {message: {id: message.id}}}
         %ul.messageItem__post
           %li.messageItem__post--contributor
             = message.user.name
