@@ -50,6 +50,11 @@ test:
 production:
   <<: *default
   database: chat_space_production
+<<<<<<< HEAD
   username: root
   password: <%= ENV['DATABASE_PASSWORD'] %>
   socket: /var/lib/mysql/mysql.sock
+=======
+  username: chat_space
+  password: <%= ENV['CHAT_SPACE_DATABASE_PASSWORD'] %>
+>>>>>>> parent of 0228686... 本番環境のmysqlの設定に調整
