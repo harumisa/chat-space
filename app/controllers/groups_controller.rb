@@ -3,8 +3,10 @@ class GroupsController < ApplicationController
   def index
     # @group = Group.find(current_user.id)
     # ↑メンターさんに見つけて貰ったずっと解決しなかったエラー404の原因記述。
-    # サインイン後ルートに飛んだ時、上記記述を呼び出してしまい、まだ作っていないサインインしたばかりのユーザーのグループを探して、
-    # @groupに代入しようとしていることが原因だった。今後注意。
+    # Groupsテーブルからなぜか(current_)userのidを探そうとして、@groupに代入しようとしていることが原因。
+    # まだどのテーブルもまっさらな状態で新規ユーザーを登録してルートのgroups#indexに跳び、上記記述を呼び出した場合、
+    # テーブルにはUsersテーブルのユーザーidだけ存在し、しかもサインイン後ログイン状態なので、この作成したcurrent_user.idで
+    # 何もないgroupsテーブル内のレコードを、ユーザーidで探そうとしていた。今後注意。
   end
 
   def new
